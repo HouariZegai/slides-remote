@@ -15,10 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QRScannerActivity"></activity>
+        <activity android:name=".RemoteControlActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/remote_control_activity_name" />
+        <activity android:name=".QRScannerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
