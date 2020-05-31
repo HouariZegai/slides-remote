@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         startBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Started button clicked!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), RemoteControlActivity.class);
+                startActivity(intent);
             }
         });
     }

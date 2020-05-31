@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Slides Remote</string>
+    <string name="remote_control_activity_name">Remote Control</string>
 </resources>

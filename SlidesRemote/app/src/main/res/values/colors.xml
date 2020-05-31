@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f9ed69</color>
-    <color name="colorPrimaryDark">#f08a5d</color>
-    <color name="colorAccent">#b83b5e</color>
-    <color name="colorSecondary">#6a2c70</color>
+    <color name="colorPrimary">#222831</color>
+    <color name="colorSecondary">#00adb5</color>
+    <color name="colorRemoteControlBtn">@color/colorSecondary</color>
 </resources>
