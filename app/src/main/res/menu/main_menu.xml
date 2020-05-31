@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuItemConnect"
+        android:title="Connected"
+        android:icon="@drawable/ic_cast_connected"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/menuItemSettings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always" />
+</menu>
