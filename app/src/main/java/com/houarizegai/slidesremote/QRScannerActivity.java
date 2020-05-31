@@ -116,14 +116,17 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                scannerView.resumeCameraPreview(QRScannerActivity.this);
+                Toast.makeText(QRScannerActivity.this, scannedResult, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("data", scannedResult);
+                startActivity(intent);
             }
         });
         builder.setNeutralButton("Retry", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 scannerView.resumeCameraPreview(QRScannerActivity.this);
-                Toast.makeText(QRScannerActivity.this, scannedResult, Toast.LENGTH_LONG).show();
             }
         });
 
