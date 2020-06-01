@@ -1,9 +1,7 @@
 package com.houarizegai.slidesremoteserver.controllers;
 
 import com.houarizegai.slidesremoteserver.engine.QRCodeEngine;
-import com.houarizegai.slidesremoteserver.engine.RemoteControlEngine;
-import com.houarizegai.slidesremoteserver.engine.RemoteControlEngineImpl;
-import com.houarizegai.slidesremoteserver.engine.RemoteControlServer;
+import com.houarizegai.slidesremoteserver.engine.SocketServer;
 import com.houarizegai.slidesremoteserver.utils.NetworkUtils;
 import com.houarizegai.slidesremoteserver.utils.RegexChecker;
 import com.jfoenix.controls.JFXTextField;
@@ -27,33 +25,27 @@ public class MainController implements Initializable {
     @FXML
     private Label lblStatus;
 
+    private SocketServer socketServer;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         onRefresh();
+
+        fieldIpAddress.setOnKeyReleased(e -> changeQRCodeImg());
     }
 
     @FXML
     private void onRefresh() {
         String myIp = NetworkUtils.getMyIPAddress();
-        if(myIp != null) {
-            fieldIpAddress.setText(myIp);
-            Image generatedQRCode = QRCodeEngine.encode(myIp, 250, 250);
-            if(generatedQRCode != null) {
-                imgQRCode.setImage(generatedQRCode);
-                lblStatus.setText("Ready to start");
-            } else {
-                lblStatus.setText("Disconnected! - Generation QRCode problem");
-            }
-        } else {
-            lblStatus.setText("Disconnected!");
-        }
+        fieldIpAddress.setText(myIp);
+        changeQRCodeImg();
     }
-
 
     @FXML
     private void onStart() {
+        socketServer = new SocketServer();
         if(RegexChecker.isIP(fieldIpAddress.getText())) {
-            RemoteControlServer.start();
+            socketServer.start();
             lblStatus.setText("Connected");
         } else {
             lblStatus.setText("Disconnected, please press the refresh button!");
@@ -62,8 +54,23 @@ public class MainController implements Initializable {
 
     @FXML
     private void onStop() {
-        RemoteControlServer.stop();
+        socketServer.stop();
         lblStatus.setText("Disconnected");
+    }
+
+
+    private void changeQRCodeImg() {
+        String myIP = fieldIpAddress.getText();
+        if(RegexChecker.isIP(myIP)) {
+            Image generatedQRCode = QRCodeEngine.encode(myIP, 250, 250);
+            if(generatedQRCode != null) {
+                imgQRCode.setImage(generatedQRCode);
+                lblStatus.setText("Ready to start");
+            } else {
+                lblStatus.setText("Disconnected! - Generation QRCode problem");
+            }
+        }
+
     }
 
 }
