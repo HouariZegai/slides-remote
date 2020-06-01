@@ -2,5 +2,5 @@
 <resources>
     <color name="colorPrimary">#222831</color>
     <color name="colorSecondary">#00adb5</color>
-    <color name="colorRemoteControlBtn">@color/colorSecondary</color>
+    <color name="colorBtn">@color/colorPrimary</color>
 </resources>
