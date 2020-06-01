@@ -1,7 +1,6 @@
 package com.houarizegai.slidesremoteserver.engine;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class KeyboardSimulatingEngine {
 
