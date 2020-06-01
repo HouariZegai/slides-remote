@@ -23,6 +23,7 @@
                <children>
                   <FontIcon iconLiteral="fa-play" iconSize="30" onMouseClicked="#onStart" styleClass="icon" />
                   <FontIcon iconLiteral="fa-refresh" iconSize="30" onMouseClicked="#onRefresh" styleClass="icon" />
+                  <FontIcon iconLiteral="fa-pause" iconSize="30" onMouseClicked="#onStop" styleClass="icon" />
                </children></HBox>
          </children>
       </StackPane>

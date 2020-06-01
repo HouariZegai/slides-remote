@@ -60,4 +60,10 @@ public class MainController implements Initializable {
         }
     }
 
+    @FXML
+    private void onStop() {
+        RemoteControlServer.stop();
+        lblStatus.setText("Disconnected");
+    }
+
 }
