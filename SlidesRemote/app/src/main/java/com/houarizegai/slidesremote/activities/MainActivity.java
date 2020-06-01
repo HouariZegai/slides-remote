@@ -1,4 +1,4 @@
-package com.houarizegai.slidesremote;
+package com.houarizegai.slidesremote.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.houarizegai.slidesremote.R;
+import com.houarizegai.slidesremote.utils.RegexChecker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +37,14 @@ public class MainActivity extends AppCompatActivity {
         startBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RemoteControlActivity.class);
-                startActivity(intent);
+                String serverIP = String.valueOf(editServerAddress.getText());
+                if(RegexChecker.isIP(serverIP)) {
+                    Intent intent = new Intent(getApplicationContext(), RemoteControlActivity.class);
+                    intent.putExtra("serverIP", serverIP);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please Type the Server IP!", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

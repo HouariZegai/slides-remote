@@ -1,4 +1,4 @@
-package com.houarizegai.slidesremote;
+package com.houarizegai.slidesremote.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -6,20 +6,14 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
-import com.google.zxing.qrcode.QRCodeReader;
-import com.google.zxing.qrcode.encoder.QRCode;
-
-import java.util.Scanner;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
