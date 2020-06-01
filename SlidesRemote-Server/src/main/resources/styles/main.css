@@ -1,0 +1,43 @@
+* {
+    -fx-font-family: Tahoma;
+    -color-primary: #222831;
+    -color-secondary: #00adb5;
+    -color-primary-light: #393e46;
+}
+
+.root {
+    -fx-padding: 20px 30px 30px 30px;
+    -fx-spacing: 15;
+    -fx-background-color: -color-primary;
+}
+
+.lbl-title {
+    -fx-font-size: 20px;
+    -fx-text-fill: -color-secondary;
+}
+
+
+.lbl-subtitle {
+    -fx-font-size: 18px;
+    -fx-text-fill: -color-secondary;
+}
+
+.lbl-desc {
+    -fx-font-size: 20px;
+    -fx-text-fill: #DDD;
+}
+
+.icon {
+    -fx-icon-size: 25px;
+    -fx-fill: -color-secondary;
+    -fx-cursor: hand
+}
+
+.field {
+    -fx-font-size: 16px;
+    -jfx-label-float: true;
+    -jfx-unfocus-color: -color-secondary;
+    -jfx-focus-color: -color-secondary;
+    -fx-prompt-text-fill: -color-secondary;
+    -fx-text-fill: #DDD;
+}
