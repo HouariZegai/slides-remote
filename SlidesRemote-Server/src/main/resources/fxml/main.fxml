@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
+   <children>
+      <Label styleClass="lbl-title" text="PPT Remote Control - Server">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin></Label>
+      <StackPane>
+         <children>
+            <Label styleClass="lbl-subtitle" text="Connection Information" StackPane.alignment="CENTER_LEFT" />
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
+               <children>
+                  <FontIcon iconLiteral="fa-play" iconSize="30" onMouseClicked="#onStart" styleClass="icon" />
+                  <FontIcon iconLiteral="fa-refresh" iconSize="30" onMouseClicked="#onRefresh" styleClass="icon" />
+               </children></HBox>
+         </children>
+      </StackPane>
+      <JFXTextField fx:id="fieldIpAddress" promptText="IP Address" styleClass="field" />
+      <ImageView fx:id="imgQRCode" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+      <TextFlow>
+         <children>
+            <Label styleClass="lbl-subtitle" text="Status: " />
+            <Label fx:id="lblStatus" styleClass="lbl-desc" />
+         </children>
+      </TextFlow>
+   </children>
+</VBox>
