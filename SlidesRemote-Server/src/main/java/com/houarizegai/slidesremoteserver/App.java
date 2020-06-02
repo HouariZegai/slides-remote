@@ -5,10 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class App extends Application {
+
+    public static Stage stage;
 
     @Override
     public void start(Stage stage) {
@@ -19,7 +22,8 @@ public class App extends Application {
             e.printStackTrace();
         }
 
-        stage.setTitle("Slides Remote - Server");
+        stage.initStyle(StageStyle.UNDECORATED);
+        App.stage = stage;
         stage.show();
     }
 

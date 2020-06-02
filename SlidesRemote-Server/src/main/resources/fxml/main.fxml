@@ -11,7 +11,7 @@
 <?import javafx.scene.text.TextFlow?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
+<BorderPane fx:id="root" prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
    <center>
       <VBox alignment="TOP_CENTER" spacing="20.0">
          <children>
@@ -33,7 +33,7 @@
                   <TextFlow>
                      <children>
                         <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="IP: " />
-                        <Label fx:id="lblIpAddress" style="-fx-font-size: 16px;" styleClass="lbl-desc" text="Label" />
+                        <Label fx:id="lblIpAddress" style="-fx-font-size: 16px;" styleClass="lbl-desc" />
                      </children>
                   </TextFlow>
                </children>

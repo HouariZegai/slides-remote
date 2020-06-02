@@ -29,6 +29,11 @@
     -fx-cursor: hand;
 }
 
+.jfx-combo-box .cell {
+    -fx-text-fill: #DDD;
+    -fx-background-color: -color-primary;
+}
+
 .icon {
     -fx-icon-size: 25px;
     -fx-fill: -color-secondary;

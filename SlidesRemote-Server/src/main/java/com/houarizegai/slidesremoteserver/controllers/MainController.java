@@ -12,13 +12,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
+    @FXML
+    private BorderPane root;
 
     @FXML
     private JFXComboBox<String> comboNetworkName;
@@ -37,12 +40,30 @@ public class MainController implements Initializable {
     // Available network addresses in my PC
     private static Map<String, String> networkAddresses;
 
+    // Used to make stage draggable
+    private double xOffset = 0;
+    private double yOffset = 0;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         comboNetworkName.valueProperty().addListener(e -> {
             updateIpLbl();
             changeQRCodeImg();
         });
+
+        /* Make stage draggable */
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        root.setOnMouseDragged(event -> {
+            App.stage.setX(event.getScreenX() - xOffset);
+            App.stage.setY(event.getScreenY() - yOffset);
+            App.stage.setOpacity(0.7f);
+        });
+        root.setOnDragDone(e -> App.stage.setOpacity(1.0f));
+        root.setOnMouseReleased(e -> App.stage.setOpacity(1.0f));
+
         onRefresh();
     }
 
