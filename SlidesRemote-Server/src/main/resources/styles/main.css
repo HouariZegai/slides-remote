@@ -6,25 +6,27 @@
 }
 
 .root {
-    -fx-padding: 20px 30px 30px 30px;
+    -fx-padding: 10px 10px 20px 10px;
     -fx-spacing: 15;
     -fx-background-color: -color-primary;
 }
 
 .lbl-title {
-    -fx-font-size: 20px;
-    -fx-text-fill: -color-secondary;
-}
-
-
-.lbl-subtitle {
-    -fx-font-size: 18px;
     -fx-text-fill: -color-secondary;
 }
 
 .lbl-desc {
-    -fx-font-size: 20px;
     -fx-text-fill: #DDD;
+}
+
+.combo {
+    -fx-font-size: 16px;
+    -jfx-label-float: true;
+    -jfx-unfocus-color: -color-secondary;
+    -jfx-focus-color: -color-secondary;
+    -fx-prompt-text-fill: -color-secondary;
+    -fx-text-fill: #DDD;
+    -fx-cursor: hand;
 }
 
 .icon {
@@ -33,11 +35,26 @@
     -fx-cursor: hand
 }
 
-.field {
-    -fx-font-size: 16px;
-    -jfx-label-float: true;
-    -jfx-unfocus-color: -color-secondary;
-    -jfx-focus-color: -color-secondary;
-    -fx-prompt-text-fill: -color-secondary;
-    -fx-text-fill: #DDD;
+.btn-close{ /* Close button */
+    -fx-pref-width: 18px;
+    -fx-pref-height: 18px;
+    -fx-background-color: #FC5653;
+    -fx-background-radius: 100%;
+}
+.btn-close:hover{
+    -fx-cursor: hand;
+    -fx-background-color: red;
+    -fx-background-radius: 100%;
+}
+
+.btn-min{ /* Hide button */
+    -fx-pref-width: 18px;
+    -fx-pref-height: 18px;
+    -fx-background-color: #29CC41;
+    -fx-background-radius: 100%;
+}
+.btn-min:hover{
+    -fx-cursor: hand;
+    -fx-background-color: green;
+    -fx-background-radius: 100%;
 }

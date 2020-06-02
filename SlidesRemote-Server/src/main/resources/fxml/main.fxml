@@ -1,39 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
-   <children>
-      <Label styleClass="lbl-title" text="PPT Remote Control - Server">
-         <VBox.margin>
-            <Insets bottom="20.0" />
-         </VBox.margin></Label>
-      <StackPane>
+<BorderPane prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="20.0">
          <children>
-            <Label styleClass="lbl-subtitle" text="Connection Information" StackPane.alignment="CENTER_LEFT" />
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
+            <StackPane>
                <children>
-                  <FontIcon iconLiteral="fa-play" iconSize="30" onMouseClicked="#onStart" styleClass="icon" />
-                  <FontIcon iconLiteral="fa-refresh" iconSize="30" onMouseClicked="#onRefresh" styleClass="icon" />
-                  <FontIcon iconLiteral="fa-pause" iconSize="30" onMouseClicked="#onStop" styleClass="icon" />
-               </children></HBox>
+                  <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Connection Information" StackPane.alignment="CENTER_LEFT" />
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
+                     <children>
+                        <FontIcon iconLiteral="fa-play" iconSize="30" onMouseClicked="#onStart" styleClass="icon" />
+                        <FontIcon iconLiteral="fa-refresh" iconSize="30" onMouseClicked="#onRefresh" styleClass="icon" />
+                        <FontIcon iconLiteral="fa-pause" iconSize="30" onMouseClicked="#onStop" styleClass="icon" />
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+            <VBox spacing="10.0">
+               <children>
+                  <JFXComboBox fx:id="comboNetworkName" maxWidth="1.7976931348623157E308" promptText="Network name" styleClass="combo" />
+                  <TextFlow>
+                     <children>
+                        <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="IP: " />
+                        <Label fx:id="lblIpAddress" style="-fx-font-size: 16px;" styleClass="lbl-desc" text="Label" />
+                     </children>
+                  </TextFlow>
+               </children>
+            </VBox>
+            <ImageView fx:id="imgQRCode" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
          </children>
-      </StackPane>
-      <JFXTextField fx:id="fieldIpAddress" promptText="IP Address" styleClass="field" />
-      <ImageView fx:id="imgQRCode" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
-      <TextFlow>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <TextFlow BorderPane.alignment="CENTER">
          <children>
-            <Label styleClass="lbl-subtitle" text="Status: " />
-            <Label fx:id="lblStatus" styleClass="lbl-desc" />
+            <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Status: " />
+            <Label fx:id="lblStatus" style="-fx-font-size: 16px;" styleClass="lbl-desc" text="Label" />
          </children>
       </TextFlow>
-   </children>
-</VBox>
+   </bottom>
+   <top>
+      <StackPane BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-size: 20px;" styleClass="lbl-desc" text="PPT Remote Control - Server" StackPane.alignment="CENTER_LEFT" />
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
+               <children>
+                  <Label onMouseClicked="#onHide" styleClass="btn-min" />
+                  <Label onMouseClicked="#onClose" styleClass="btn-close" />
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </HBox>
+         </children>
+      </StackPane>
+   </top>
+</BorderPane>
