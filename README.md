@@ -10,7 +10,12 @@ WIFI Presentation Remote - Control Slides (like: MS PowerPoint) from your Androi
 * [x] No Internet connection required
 * [x] Multi Platform App (We write once & you Run anywhere!)
 * [x] You Can also Control your PC Slides anywhere in the world! (in this case you need Internet connection)
-* [x] Control the Start, Stop, Next, Back of your presentation & also control the Volume (UP/Down/Mute)
+* [x] Control the Start, Stop, Next, Back of your presentation
+* [x] <del>Control the Computer Volume (UP/Down/Mute)</del>
+
+# Thank _You_!
+Please :star: this repo to help us improve the quality.
+
 ## Screenshots
 Home           | Scan Server IP :camera:
 :---------------------:|:------------------:
