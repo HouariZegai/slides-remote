@@ -88,7 +88,7 @@ public class MainController implements Initializable {
             socketServer.start();
             lblStatus.setText("Connected");
         } else {
-            lblStatus.setText("Disconnected, please press the refresh button!");
+            lblStatus.setText("Disconnected");
         }
     }
 
