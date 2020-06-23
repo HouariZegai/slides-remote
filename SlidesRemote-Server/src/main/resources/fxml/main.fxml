@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
@@ -9,9 +11,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane fx:id="root" prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
+<BorderPane fx:id="root" prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
    <center>
       <VBox alignment="TOP_CENTER" spacing="20.0">
          <children>
@@ -20,9 +21,24 @@
                   <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Connection Information" StackPane.alignment="CENTER_LEFT" />
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
                      <children>
-                        <FontIcon iconLiteral="fa-play" iconSize="30" onMouseClicked="#onStart" styleClass="icon" />
-                        <FontIcon iconLiteral="fa-refresh" iconSize="30" onMouseClicked="#onRefresh" styleClass="icon" />
-                        <FontIcon iconLiteral="fa-pause" iconSize="30" onMouseClicked="#onStop" styleClass="icon" />
+                        <JFXButton onAction="#onStart" textFill="WHITE">
+                           <styleClass>
+                              <String fx:value="icon" />
+                              <String fx:value="play-svg" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton onAction="#onStop" textFill="WHITE">
+                           <styleClass>
+                              <String fx:value="icon" />
+                              <String fx:value="pause-svg" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton onAction="#onRefresh" textFill="WHITE">
+                           <styleClass>
+                              <String fx:value="icon" />
+                              <String fx:value="refresh-svg" />
+                           </styleClass>
+                        </JFXButton>
                      </children>
                   </HBox>
                </children>
@@ -49,7 +65,7 @@
       <TextFlow BorderPane.alignment="CENTER">
          <children>
             <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Status: " />
-            <Label fx:id="lblStatus" style="-fx-font-size: 16px;" styleClass="lbl-desc" text="Label" />
+            <Label fx:id="lblStatus" style="-fx-font-size: 16px;" styleClass="lbl-desc" />
          </children>
       </TextFlow>
    </bottom>
