@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
@@ -12,77 +13,96 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane fx:id="root" prefWidth="400.0" styleClass="root" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
-   <center>
-      <VBox alignment="TOP_CENTER" spacing="20.0">
-         <children>
-            <StackPane>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.MainController">
+   <children>
+      <BorderPane prefWidth="400.0" styleClass="root">
+         <center>
+            <VBox alignment="TOP_CENTER" spacing="20.0">
                <children>
-                  <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Connection Information" StackPane.alignment="CENTER_LEFT" />
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
+                  <StackPane>
                      <children>
-                        <JFXButton onAction="#onStart" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="icon" />
-                              <String fx:value="play-svg" />
-                           </styleClass>
-                        </JFXButton>
-                        <JFXButton onAction="#onStop" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="icon" />
-                              <String fx:value="pause-svg" />
-                           </styleClass>
-                        </JFXButton>
-                        <JFXButton onAction="#onRefresh" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="icon" />
-                              <String fx:value="refresh-svg" />
-                           </styleClass>
-                        </JFXButton>
+                        <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Connection Information" StackPane.alignment="CENTER_LEFT" />
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
+                           <children>
+                              <JFXButton onAction="#onStart" textFill="WHITE">
+                                 <styleClass>
+                                    <String fx:value="icon" />
+                                    <String fx:value="play-svg" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton onAction="#onStop" textFill="WHITE">
+                                 <styleClass>
+                                    <String fx:value="icon" />
+                                    <String fx:value="pause-svg" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton onAction="#onRefresh" textFill="WHITE">
+                                 <styleClass>
+                                    <String fx:value="icon" />
+                                    <String fx:value="refresh-svg" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </HBox>
                      </children>
+                  </StackPane>
+                  <VBox spacing="10.0">
+                     <children>
+                        <JFXComboBox fx:id="comboNetworkName" maxWidth="1.7976931348623157E308" promptText="Network name" styleClass="combo" />
+                        <TextFlow>
+                           <children>
+                              <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="IP: " />
+                              <Label fx:id="lblIpAddress" style="-fx-font-size: 16px;" styleClass="lbl-desc" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="imgQRCode" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <TextFlow HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Status: " />
+                        <Label fx:id="lblStatus" style="-fx-font-size: 16px;" styleClass="lbl-desc" />
+                     </children>
+                  </TextFlow>
+                  <JFXButton onAction="#onAbout" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="icon" />
+                        <String fx:value="info-svg" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </bottom>
+         <top>
+            <StackPane BorderPane.alignment="CENTER">
+               <children>
+                  <Label style="-fx-font-size: 20px;" styleClass="lbl-desc" text="PPT Remote Control - Server" StackPane.alignment="CENTER_LEFT" />
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
+                     <children>
+                        <Label onMouseClicked="#onHide" styleClass="btn-min" />
+                        <Label onMouseClicked="#onClose" styleClass="btn-close" />
+                     </children>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
                   </HBox>
                </children>
             </StackPane>
-            <VBox spacing="10.0">
-               <children>
-                  <JFXComboBox fx:id="comboNetworkName" maxWidth="1.7976931348623157E308" promptText="Network name" styleClass="combo" />
-                  <TextFlow>
-                     <children>
-                        <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="IP: " />
-                        <Label fx:id="lblIpAddress" style="-fx-font-size: 16px;" styleClass="lbl-desc" />
-                     </children>
-                  </TextFlow>
-               </children>
-            </VBox>
-            <ImageView fx:id="imgQRCode" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="10.0" top="50.0" />
-         </BorderPane.margin>
-      </VBox>
-   </center>
-   <bottom>
-      <TextFlow BorderPane.alignment="CENTER">
-         <children>
-            <Label style="-fx-font-size: 18px;" styleClass="lbl-title" text="Status: " />
-            <Label fx:id="lblStatus" style="-fx-font-size: 16px;" styleClass="lbl-desc" />
-         </children>
-      </TextFlow>
-   </bottom>
-   <top>
-      <StackPane BorderPane.alignment="CENTER">
-         <children>
-            <Label style="-fx-font-size: 20px;" styleClass="lbl-desc" text="PPT Remote Control - Server" StackPane.alignment="CENTER_LEFT" />
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
-               <children>
-                  <Label onMouseClicked="#onHide" styleClass="btn-min" />
-                  <Label onMouseClicked="#onClose" styleClass="btn-close" />
-               </children>
-               <StackPane.margin>
-                  <Insets />
-               </StackPane.margin>
-            </HBox>
-         </children>
-      </StackPane>
-   </top>
-</BorderPane>
+         </top>
+         <stylesheets>
+            <URL value="@../styles/colors.css" />
+            <URL value="@../styles/main.css" />
+         </stylesheets>
+      </BorderPane>
+   </children>
+</StackPane>
