@@ -6,14 +6,18 @@ import com.houarizegai.slidesremoteserver.engine.SocketServer;
 import com.houarizegai.slidesremoteserver.utils.NetworkUtils;
 import com.houarizegai.slidesremoteserver.utils.RegexChecker;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDialog;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -21,7 +25,7 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
-    private BorderPane root;
+    private StackPane root;
 
     @FXML
     private JFXComboBox<String> comboNetworkName;
@@ -35,6 +39,8 @@ public class MainController implements Initializable {
     @FXML
     private Label lblStatus;
 
+    public static JFXDialog aboutDialog;
+
     private SocketServer socketServer;
 
     // Available network addresses in my PC
@@ -46,6 +52,16 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Init dialog
+        try {
+            Region aboutView = FXMLLoader.load(getClass().getResource("/fxml/about.fxml"));
+
+            aboutDialog = new JFXDialog(root, aboutView, JFXDialog.DialogTransition.CENTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         comboNetworkName.valueProperty().addListener(e -> {
             updateIpLbl();
             changeQRCodeImg();
@@ -108,6 +124,11 @@ public class MainController implements Initializable {
         App.stage.setIconified(true);
     }
 
+    @FXML
+    void onAbout() {
+        aboutDialog.show();
+    }
+
     private void changeQRCodeImg() {
         String myIP = lblIpAddress.getText();
         if(RegexChecker.isIP(myIP)) {
@@ -126,5 +147,4 @@ public class MainController implements Initializable {
         String selectedNetworkName = networkAddresses.get(comboNetworkName.getSelectionModel().getSelectedItem());
         lblIpAddress.setText(selectedNetworkName);
     }
-
 }
