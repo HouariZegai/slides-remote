@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefWidth="350.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.slidesremoteserver.controllers.AboutController">
+   <children>
+      <StackPane>
+         <children>
+            <Label style="-fx-font-size: 18px;" styleClass="lbl-desc" text="About" StackPane.alignment="CENTER_LEFT" />
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
+               <children>
+                  <Label onMouseClicked="#onClose" styleClass="btn-close" />
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </HBox>
+         </children>
+      </StackPane>
+      <VBox alignment="TOP_CENTER" spacing="10.0">
+         <children>
+            <Label style="-fx-font-size: 30px;" styleClass="lbl-title" text="SoftBrains DZ" />
+            <Label styleClass="lbl-desc" text="Multi-platform development company" />
+            <HBox maxWidth="-Infinity" spacing="10.0">
+               <children>
+                  <Label onMouseClicked="#goWebsite" text="">
+                     <styleClass>
+                        <String fx:value="icon" />
+                        <String fx:value="www-svg" />
+                     </styleClass>
+                  </Label>
+                  <Label onMouseClicked="#goFacebook" text="">
+                     <styleClass>
+                        <String fx:value="icon" />
+                        <String fx:value="fb-svg" />
+                     </styleClass>
+                  </Label>
+                  <Label onMouseClicked="#goTwitter" text="">
+                     <styleClass>
+                        <String fx:value="icon" />
+                        <String fx:value="tw-svg" />
+                     </styleClass>
+                  </Label>
+                  <Label onMouseClicked="#goLinkedin" text="">
+                     <styleClass>
+                        <String fx:value="icon" />
+                        <String fx:value="in-svg" />
+                     </styleClass>
+                  </Label>
+                  <Label onMouseClicked="#goInstagram" text="">
+                     <styleClass>
+                        <String fx:value="icon" />
+                        <String fx:value="insta-svg" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+               <children>
+                  <Label styleClass="lbl-desc" text="Email: eng.zegai@gmail.com" />
+                  <Label styleClass="lbl-desc" text="Phone: +213 (0) 797603258" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../styles/colors.css" />
+      <URL value="@../styles/about.css" />
+   </stylesheets>
+</VBox>
