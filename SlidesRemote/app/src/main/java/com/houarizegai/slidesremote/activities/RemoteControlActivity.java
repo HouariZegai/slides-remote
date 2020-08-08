@@ -1,5 +1,6 @@
 package com.houarizegai.slidesremote.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -23,7 +24,10 @@ public class RemoteControlActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote_control);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+        }
 
         Intent intent = getIntent();
         if(intent != null) {

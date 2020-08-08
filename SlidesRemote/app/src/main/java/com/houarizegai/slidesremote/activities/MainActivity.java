@@ -58,11 +58,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.menuItemConnect) {
-            Intent intent = new Intent(this, QRScannerActivity.class);
-            startActivity(intent);
-        } else if(id == R.id.menuItemSettings) {
-            Toast.makeText(this, "Comming Soon!", Toast.LENGTH_LONG).show();
+        switch (id) {
+            case R.id.menuItemConnect:
+                startActivity(new Intent(this, QRScannerActivity.class));
+                break;
+            case R.id.menuItemAbout:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

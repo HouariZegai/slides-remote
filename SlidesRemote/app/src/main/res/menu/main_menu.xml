@@ -7,8 +7,8 @@
         android:icon="@drawable/ic_cast_connected"
         app:showAsAction="always" />
 
-    <item android:id="@+id/menuItemSettings"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings"
+    <item android:id="@+id/menuItemAbout"
+        android:title="About"
+        android:icon="@drawable/ic_info"
         app:showAsAction="always" />
 </menu>

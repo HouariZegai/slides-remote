@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Slides Remote</string>
     <string name="remote_control_activity_name">Remote Control</string>
+    <string name="company_name">SoftbrainsDZ</string>
+    <string name="company_description">Multi-Platform Development Company</string>
+    <string name="company_email">engzegai@gmail.com</string>
+    <string name="company_phone">+213 (0) 797603258</string>
+    <string name="company_website">https://softbrainsdz.github.io</string>
 </resources>
